@@ -19,10 +19,10 @@ export class Form {
   public cliente: Cliente = new Cliente();
   public titulo: string = 'Crear Cliente'
 
-  contructor(private clienteService: ClienteService, private router: Router) { }
+  constructor(private clienteService: ClienteService, private router: Router) { }
 
   public crearCliente() {
-    this.clienteService.(this.cliente).subscribe(
+    this.clienteService.createCliente(this.cliente).subscribe(
       response => {
         console.log('cliente creado exitosamente');
         console.log(this.cliente);
