@@ -35,4 +35,8 @@ export class ClienteService {
     console.log('Eliminando cliente desde el servicio');
     return this.http.delete<Cliente>(this.urlEndPoint + '/' + id, {headers: this.httpHeaders});
   }
+
+  verificarCodigo(codigo: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.urlEndPoint}/codigo/${codigo}`)
+  }
 }

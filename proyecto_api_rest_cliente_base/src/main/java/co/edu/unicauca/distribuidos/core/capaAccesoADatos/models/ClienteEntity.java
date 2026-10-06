@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ClienteEntity {
 	private Integer id;
+	private String codigo;
 	private String nombre;
 	private String apellido;
 	private String email;

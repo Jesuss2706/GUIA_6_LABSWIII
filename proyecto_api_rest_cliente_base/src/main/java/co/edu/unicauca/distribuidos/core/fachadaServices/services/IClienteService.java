@@ -16,4 +16,6 @@ public interface IClienteService {
 	public ClienteDTO update(Integer id, ClienteDTO cliente);
 
 	public boolean delete(Integer id);
+
+	public boolean existeClienteCodigo(String codigo);
 }

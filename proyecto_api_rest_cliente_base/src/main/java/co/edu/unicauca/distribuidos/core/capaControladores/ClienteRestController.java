@@ -4,6 +4,7 @@ package co.edu.unicauca.distribuidos.core.capaControladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unicauca.distribuidos.core.fachadaServices.DTO.ClienteDTO;
 import co.edu.unicauca.distribuidos.core.fachadaServices.services.IClienteService;
+import lombok.experimental.PackagePrivate;
 
 @RestController
 @RequestMapping("/api")
@@ -48,6 +50,12 @@ public class ClienteRestController {
 		return objCliente;
 	}
 
+	@GetMapping("clientes/codigo/{codigo}")
+	public ResponseEntity<Boolean> existeClienteCodigo(@PathVariable String codigo){
+		Boolean bandera = clienteService.existeClienteCodigo(codigo);
+		return ResponseEntity.ok(bandera);
+	}
+
 	@PostMapping("/clientes")
 	public ClienteDTO crearCliente(@RequestBody ClienteDTO cliente) {
 		ClienteDTO objCliente = null;
@@ -74,5 +82,6 @@ public class ClienteRestController {
 		}
 		return bandera;
 	}
+
 
 }

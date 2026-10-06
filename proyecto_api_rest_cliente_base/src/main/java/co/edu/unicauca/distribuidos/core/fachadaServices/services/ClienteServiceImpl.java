@@ -61,4 +61,9 @@ public class ClienteServiceImpl implements IClienteService {
 	public boolean delete(Integer id) {
 		return this.servicioAccesoBaseDatos.delete(id);
 	}
+
+	@Override 
+	public boolean existeClienteCodigo(String codigo){
+		return this.servicioAccesoBaseDatos.findByCodigo(codigo);
+	}
 }
